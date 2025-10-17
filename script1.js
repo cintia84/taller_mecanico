@@ -526,7 +526,7 @@ document.getElementById('joinModal').style.display = 'none';
     window.addEventListener('resize', resizeRenderer);
 
     const loader = new THREE.TextureLoader();
-    loader.load('imagenes/logo.png', (tex) => {
+    loader.load('logo.png', (tex) => {
         tex.encoding = THREE.sRGBEncoding;
         const aspect = tex.image.height / tex.image.width;
         const geometry = new THREE.PlaneGeometry(2, 5 * aspect);
@@ -550,4 +550,5 @@ document.getElementById('joinModal').style.display = 'none';
         }
         animate();
     });
+
 })();
