@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="database.js"></script>
+    <title>CARS SERVICE - Servicio Integral</title>
+</head>
+
+<body>
+    
+                <header>
+        <div class="container header-content">
+            <div id="logo3d"></div>
+         <noscript>
+         <img src="imagenes/logo.png" alt="Cars Service" class="logo">
+         </noscript>
+            <div class="header-nav-actions">
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#solicita-tu-turno">Reservar</a></li>
+                        <li><a href="#sobre-nosotros">Nosotros</a></li>
+                        <li><a href="#" id="joinBtn">Clientes</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="dark-mode-toggle" id="darkModeToggle">
+                        <i class="fas fa-moon"></i>
+                        <span class="toggle-switch">
+                            <span class="slider"></span>
+                        </span>
+                    </button>
+                </div>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="carousel-container">
+            <div class="carousel-slide">
+                <img src="./imagenes/vista-superior-hombre-reparando-coche.jpg" alt="Coche en reparación">
+            </div>
+            <div class="carousel-slide">
+                <img src="./imagenes/taller1.jpg" alt="Mecánico en el taller">
+            </div>
+            <div class="carousel-slide">
+                <img src="./imagenes/taller2.jpg" alt="Herramientas y piezas">
+            </div>
+            <div class="carousel-slide">
+                <img src="./imagenes/taller3.jpg" alt="Reparación motor">
+            </div>
+            <div class="carousel-slide">
+                <img src="./imagenes/taller4.jpg" alt="Diagnóstico">
+            </div>
+            <div class="carousel-slide">
+                <img src="./imagenes/taller5.jpg" alt="Mantenimiento">
+            </div>
+            <div class="carousel-slide">
+                <img src="./imagenes/taller6.jpg" alt="Servicio profesional">
+            </div>
+            <div class="carousel-slide">
+                <img src="./imagenes/taller7.jpg" alt="Taller moderno">
+            </div>
+            <div class="carousel-slide">
+                <img src="./imagenes/taller8.jpg" alt="Equipo especializado">
+            </div>
+        </div>
+        <div class="container hero-content">
+            <h1>TU VEHÍCULO EN LAS MEJORES MANOS</h1>
+            <p>Gestión de Turnos Online - Servicio Profesional</p>
+        </div>
+    </section>
+
+    <section class="services-section" id="servicios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nuestros Servicios</h2>
+            </div>
+            <div class="services-grid" id="servicesGrid"></div>
+        </div>
+    </section>
+
+    <div id="solicita-tu-turno">
+        <div class="booking-payment-container">
+            <section class="booking-form">
+                <h2 class="form-title">Nueva Reserva</h2>
+                <form id="bookingForm">
+                    <div class="form-group">
+                        <label for="name">Nombre completo</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Servicio</label>
+                        <select id="service" class="form-control" required>
+                            <option value="">Seleccione un servicio</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Fecha</label>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="time">Hora</label>
+                        <select id="time" class="form-control" required>
+                            <option value="">Seleccione una hora</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="notes">Notas adicionales</label>
+                        <textarea id="notes" class="form-control" rows="3" placeholder="Describa cualquier detalle específico de su vehículo..."></textarea>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn-primary">
+                            <span id="submitText">Reservar Turno</span>
+                            <span id="submitSpinner" class="spinner" style="display:none;">⏳</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="payment-section">
+                <h2>Métodos de Pago</h2>
+                <div class="payment-methods">
+                   
+                <div class="payment-config">
+                    <button class="btn-primary" id="mercadoPagoBtn">
+                        <i class="fas fa-credit-card"></i> Ir a Mercado Pago
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <section id="sobre-nosotros" class="about-section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>Sobre Nosotros</h2>
+                    <p>En Cars Service, nos dedicamos a cuidar tu vehículo con la misma atención y profesionalismo con la que cuidamos a nuestros clientes. Somos un equipo de técnicos apasionados y, sobre todo, un grupo humano que entiende la importancia de un servicio confiable y transparente.</p>
+                    <p>Nos hemos consolidado como un taller integral, donde puedes encontrar todas las soluciones para tu auto en un solo lugar. Nuestra misión es simple: que salgas de aquí con la certeza de que tu vehículo está en las mejores manos.</p>
+                    <p>Más allá de la experiencia y la tecnología que utilizamos, lo que realmente nos distingue es la calidez y el trato personalizado. Entendemos que cada vehículo y cada cliente son únicos.</p>
+                    <p>Te invitamos a visitarnos y experimentar la diferencia de un servicio verdaderamente profesional.</p>
+                </div>
+                <div class="about-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26775.9409022932!2d-60.681432465234344!3d-32.977596699999964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b7ad5a16b001f3%3A0xced30f5d4c0f1e6!2sCars%20service%20f.lopez!5e0!3m2!1ses-419!2sar!4v1755657005222!5m2!1ses-419!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="appointments-section" id="appointmentsSection">
+        <div class="container">
+            <div class="section-title">
+                <h2>Gestión de Turnos</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalAppointments">0</div>
+                    <div class="stat-label">Turnos Totales</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="confirmedAppointments">0</div>
+                    <div class="stat-label">Confirmados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="cancelledAppointments">0</div>
+                    <div class="stat-label">Cancelados</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="revenue">$0</div>
+                    <div class="stat-label">Ingresos</div>
+                </div>
+            </div>
+            <table class="appointments-table">
+                <thead>
+                    <tr>
+                        <th>Cliente</th>
+                        <th>Servicio</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="appointmentsTableBody"></tbody>
+            </table>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-content">
+            <h3>CARS SERVICE</h3>
+            <p>La confianza que necesitas en manos de quienes más saben.</p>
+            <div class="social-links">
+                
+                <a href="https://www.instagram.com/tallercars.service/?igsh=MWtuZXU1djV1ZzFyZg%3D%3D#" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5493415598208" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>© 2025 CARS SERVICE. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+  <div class="modal" id="joinModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            
+            <!-- Formulario de Login -->
+            <form id="loginForm" class="active">
+                <h3 class="modal-title">Iniciar Sesión</h3>
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Contraseña</label>
+                    <input type="password" id="loginPassword" class="form-control" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-primary">Ingresar</button>
+                </div>
+                 <div class="register-section" id="registerSection">
+                <p>¿No tienes cuenta? <button id="showRegisterBtn" class="btn-link">Regístrate aquí</button></p>
+            </div>
+            </form>
+            
+            <!-- Formulario de Registro -->
+            <form id="registerForm">
+                <h3 class="modal-title">Crear Cuenta</h3>
+                <div class="form-group">
+                    <label for="joinName">Nombre completo</label>
+                    <input type="text" id="joinName" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="joinEmail">Email</label>
+                    <input type="email" id="joinEmail" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="joinPassword">Contraseña</label>
+                    <input type="password" id="joinPassword" class="form-control" required>
+                </div>
+                <div class="form-buttons">
+                    <button type="submit" class="btn-primary">Crear Cuenta</button>
+                </div>
+                <div class="register-section">
+                    <p>¿Ya tienes cuenta? <button id="showLoginBtn" class="btn-link">Inicia sesión aquí</button></p>
+                </div>
+            </form>
+        </div>
+    </div>
+      <a href="https://wa.me/5493415598208?text=Hola!%20Necesito%20información%20sobre%20los%20servicios%20de%20Cars%20Service" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¡Contáctanos!</span>
+    </a>
+
+    <!-- Database Toggle Button 
+    <button class="database-toggle" id="databaseToggle" aria-label="Ver base de datos">
+        <i class="fas fa-database"></i>
+    </button>-->
+
+    <!-- Database Panel -->
+    <div class="database-panel" id="databasePanel">
+        <button class="close-panel" id="closeDatabasePanel">&times;</button>
+        <h3><i class="fas fa-database"></i> Base de Datos</h3>
+        
+        <div class="db-actions">
+            <button class="btn-small btn-export" id="exportData">
+                <i class="fas fa-download"></i> Exportar
+            </button>
+            <button class="btn-small btn-import" id="importData">
+                <i class="fas fa-upload"></i> Importar
+            </button>
+            <button class="btn-small btn-clear" id="clearData">
+                <i class="fas fa-trash"></i> Limpiar
+            </button>
+        </div>
+
+        <div class="db-section">
+            <h4><i class="fas fa-calendar-check"></i> Citas Programadas</h4>
+            <div id="dbAppointments"></div>
+        </div>
+
+        <div class="db-section">
+            <h4><i class="fas fa-users"></i> Clientes Registrados</h4>
+            <div id="dbCustomers"></div>
+        </div>
+
+        <div class="db-section">
+            <h4><i class="fas fa-chart-bar"></i> Estadísticas</h4>
+            <div id="dbStats"></div>
+        </div>
+    </div>
+  <script src="database.js"></script>
+    <script src="script1.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+</body>
+
+</html>
